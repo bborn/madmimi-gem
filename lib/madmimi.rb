@@ -354,7 +354,7 @@ class MadMimi
   end
 
   def path(key, arguments={})
-    escaped_arguments = arguments.inject({}){ |h, (k, v)| h[k] = URI.escape(v.to_s); h }
+    escaped_arguments = arguments.inject({}){ |h, (k, v)| h[k] = CGI.escape(v.to_s); h }    
     paths[key] % escaped_arguments
   end
 
